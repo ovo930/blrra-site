@@ -6,17 +6,17 @@
   <title>隱私政策 - BlrraPlayer</title>
   <style>
     :root {
-      --main-bg: #181c2a;
-      --card-bg: #232946;
+      --main-bg: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      --card-bg: rgba(255,255,255,0.96);
       --primary: #3f8efc;
-      --primary-dark: #1a73e8;
       --accent: #f7c873;
-      --text-main: #f4f4f4;
-      --text-sub: #b8c1ec;
-      --button-bg: #f7c873;
-      --button-text: #181c2a;
-      --button-hover: #ffe6a7;
-      --shadow: 0 4px 32px rgba(30,40,90,0.18);
+      --text-main: #232946;
+      --text-sub: #5f6c7b;
+      --button-bg: #3f8efc;
+      --button-text: #fff;
+      --button-hover: #fed6e3;
+      --button-hover-text: #3f8efc;
+      --shadow: 0 4px 32px rgba(60,60,120,0.10);
     }
     body {
       font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
@@ -28,7 +28,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-image: radial-gradient(circle at 60% 20%, #3f8efc22 0%, transparent 70%), radial-gradient(circle at 20% 80%, #f7c87322 0%, transparent 70%);
     }
     .lang-switcher {
       position: absolute;
@@ -51,8 +50,8 @@
     }
     .lang-switcher button.active,
     .lang-switcher button:focus {
-      background: var(--primary);
-      color: #fff;
+      background: var(--button-hover);
+      color: var(--button-hover-text);
       outline: 2px solid var(--accent);
     }
     main {
@@ -63,21 +62,21 @@
       max-width: 540px;
       margin-top: 60px;
       margin-bottom: 2em;
-      border: 1.5px solid #2e3650;
+      border: 1.5px solid #e0e7ef;
       backdrop-filter: blur(2px);
       position: relative;
     }
     h1 {
       font-size: 2.1rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 1.2em;
       letter-spacing: 1px;
       text-align: center;
     }
     h2 {
       font-size: 1.2rem;
-      color: var(--primary);
+      color: var(--accent);
       margin-top: 1.5em;
       margin-bottom: 0.5em;
     }
@@ -103,7 +102,6 @@
       h1 { font-size: 1.4rem; }
       .lang-switcher { top: 12px; right: 12px; }
     }
-    /* 語言內容顯示控制 */
     .lang-content { display: none; }
     .lang-content.active { display: block; }
   </style>
