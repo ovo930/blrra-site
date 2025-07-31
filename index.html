@@ -2,18 +2,102 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>BlrraPlayer - 專業音樂播放器</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+      background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      margin-top: 60px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5em;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(60,60,120,0.18);
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #e0e7ff;
+      margin-bottom: 2em;
+      font-weight: 400;
+    }
+    main {
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(60,60,120,0.10);
+      padding: 2.5em 2em 2em 2em;
+      max-width: 480px;
+      margin-bottom: 2em;
+      margin-top: 1em;
+    }
+    ul {
+      padding-left: 1.2em;
+      margin-bottom: 2em;
+    }
+    li {
+      margin-bottom: 0.7em;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    a.button {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.7em 2em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(60,60,120,0.10);
+      transition: background 0.2s;
+      margin-top: 1em;
+    }
+    a.button:hover {
+      background: #06b6d4;
+    }
+    footer {
+      margin-top: auto;
+      color: #e0e7ff;
+      font-size: 0.95rem;
+      padding-bottom: 1.5em;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      main { padding: 1.2em 0.5em; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>歡迎來到 BlrraPlayer</h1>
-  <p>BlrraPlayer 是一款專業的音樂播放器，支持高品質音頻播放、冥想模式、音樂可視化等功能。</p>
-  <ul>
-    <li>高品質音頻播放（支援 24-bit/192kHz）</li>
-    <li>智能音樂推薦和分析</li>
-    <li>冥想和放鬆功能</li>
-    <li>美觀的視覺化效果</li>
-    <li>多種動態主題</li>
-  </ul>
-  <a href="privacy.html">隱私政策</a>
+  <header>
+    <h1>BlrraPlayer</h1>
+    <div class="subtitle">專業音樂播放器，極致音質與智能體驗</div>
+  </header>
+  <main>
+    <ul>
+      <li>🎵 <b>高品質音頻播放</b>（支援 24-bit/192kHz）</li>
+      <li>🤖 <b>AI 智能音樂推薦與分析</b></li>
+      <li>🧘 <b>冥想與放鬆模式</b></li>
+      <li>🌈 <b>多主題動態視覺化</b></li>
+      <li>🔒 <b>隱私安全，無廣告</b></li>
+    </ul>
+    <a class="button" href="privacy.html">查看隱私政策</a>
+  </main>
+  <footer>
+    &copy; 2024 BlrraPlayer. All rights reserved.
+  </footer>
 </body>
 </html>
