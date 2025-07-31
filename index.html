@@ -6,17 +6,17 @@
   <title>Blrra Music Player - 專業音樂播放器</title>
   <style>
     :root {
-      --main-bg: #181c2a;
-      --card-bg: #232946;
+      --main-bg: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      --card-bg: rgba(255,255,255,0.96);
       --primary: #3f8efc;
-      --primary-dark: #1a73e8;
       --accent: #f7c873;
-      --text-main: #f4f4f4;
-      --text-sub: #b8c1ec;
-      --button-bg: #f7c873;
-      --button-text: #181c2a;
-      --button-hover: #ffe6a7;
-      --shadow: 0 4px 32px rgba(30,40,90,0.18);
+      --text-main: #232946;
+      --text-sub: #5f6c7b;
+      --button-bg: #3f8efc;
+      --button-text: #fff;
+      --button-hover: #fed6e3;
+      --button-hover-text: #3f8efc;
+      --shadow: 0 4px 32px rgba(60,60,120,0.10);
     }
     body {
       font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
@@ -28,7 +28,31 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-image: radial-gradient(circle at 60% 20%, #3f8efc22 0%, transparent 70%), radial-gradient(circle at 20% 80%, #f7c87322 0%, transparent 70%);
+    }
+    .lang-switcher {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      z-index: 10;
+    }
+    .lang-switcher button {
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 8px;
+      padding: 0.4em 1.1em;
+      margin-left: 0.3em;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .lang-switcher button.active,
+    .lang-switcher button:focus {
+      background: var(--button-hover);
+      color: var(--button-hover-text);
+      outline: 2px solid var(--accent);
     }
     header {
       margin-top: 60px;
@@ -37,10 +61,10 @@
     h1 {
       font-size: 2.8rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 0.5em;
       letter-spacing: 2px;
-      text-shadow: 0 2px 8px #0004;
+      text-shadow: 0 2px 8px #fff4;
     }
     .subtitle {
       font-size: 1.3rem;
@@ -56,8 +80,9 @@
       max-width: 480px;
       margin-bottom: 2em;
       margin-top: 1em;
-      border: 1.5px solid #2e3650;
+      border: 1.5px solid #e0e7ef;
       backdrop-filter: blur(2px);
+      position: relative;
     }
     ul {
       padding-left: 1.2em;
@@ -87,7 +112,7 @@
     }
     a.button:focus, a.button:hover {
       background: var(--button-hover);
-      color: var(--primary-dark);
+      color: var(--button-hover-text);
       box-shadow: 0 4px 16px #0003;
     }
     a.button:active {
@@ -104,26 +129,84 @@
     @media (max-width: 600px) {
       main { padding: 1.2em 0.5em; }
       h1 { font-size: 2rem; }
+      .lang-switcher { top: 12px; right: 12px; }
     }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
   </style>
 </head>
 <body>
+  <div class="lang-switcher" aria-label="語言切換 Language Switcher">
+    <button id="btn-zh-cn" type="button">简体</button>
+    <button id="btn-zh-tw" type="button" class="active">繁體</button>
+    <button id="btn-en" type="button">EN</button>
+  </div>
   <header>
     <h1>Blrra Music Player</h1>
-    <div class="subtitle">專業音樂播放器，極致音質與智能體驗</div>
+    <div class="subtitle lang-content lang-zh-tw active">專業音樂播放器，極致音質與智能體驗</div>
+    <div class="subtitle lang-content lang-zh-cn">专业音乐播放器，极致音质与智能体验</div>
+    <div class="subtitle lang-content lang-en">Professional Music Player, Ultimate Sound & Smart Experience</div>
   </header>
   <main>
-    <ul>
-      <li>🎵 <b>高品質音頻播放</b>（支援 24-bit/192kHz）</li>
-      <li>🤖 <b>AI 智能音樂推薦與分析</b></li>
-      <li>🧘 <b>冥想與放鬆模式</b></li>
-      <li>🌈 <b>多主題動態視覺化</b></li>
-      <li>🔒 <b>隱私安全，無廣告</b></li>
-    </ul>
-    <a class="button" href="privacy.html" tabindex="0" aria-label="查看隱私政策">查看隱私政策</a>
+    <!-- 繁體中文 -->
+    <div class="lang-content lang-zh-tw active">
+      <ul>
+        <li>🎵 <b>高品質音頻播放</b>（支援 24-bit/192kHz）</li>
+        <li>🤖 <b>AI 智能音樂推薦與分析</b></li>
+        <li>🧘 <b>冥想與放鬆模式</b></li>
+        <li>🌈 <b>多主題動態視覺化</b></li>
+        <li>🔒 <b>隱私安全，無廣告</b></li>
+      </ul>
+      <a class="button" href="privacy.html" tabindex="0" aria-label="查看隱私政策">查看隱私政策</a>
+    </div>
+    <!-- 简体中文 -->
+    <div class="lang-content lang-zh-cn">
+      <ul>
+        <li>🎵 <b>高品质音频播放</b>（支持 24-bit/192kHz）</li>
+        <li>🤖 <b>AI 智能音乐推荐与分析</b></li>
+        <li>🧘 <b>冥想与放松模式</b></li>
+        <li>🌈 <b>多主题动态可视化</b></li>
+        <li>🔒 <b>隐私安全，无广告</b></li>
+      </ul>
+      <a class="button" href="privacy.html" tabindex="0" aria-label="查看隐私政策">查看隐私政策</a>
+    </div>
+    <!-- English -->
+    <div class="lang-content lang-en">
+      <ul>
+        <li>🎵 <b>High-Quality Audio Playback</b> (Supports 24-bit/192kHz)</li>
+        <li>🤖 <b>AI Smart Music Recommendation & Analysis</b></li>
+        <li>🧘 <b>Meditation & Relaxation Modes</b></li>
+        <li>🌈 <b>Dynamic Multi-Theme Visualizations</b></li>
+        <li>🔒 <b>Privacy Safe, No Ads</b></li>
+      </ul>
+      <a class="button" href="privacy.html" tabindex="0" aria-label="View Privacy Policy">View Privacy Policy</a>
+    </div>
   </main>
   <footer>
-    &copy; 2024 Blrra.co.LTD. All rights reserved.
+    &copy; 2024 Blrra Music Player. All rights reserved.
   </footer>
+  <script>
+    // 語言切換邏輯
+    const btns = {
+      'zh-cn': document.getElementById('btn-zh-cn'),
+      'zh-tw': document.getElementById('btn-zh-tw'),
+      'en': document.getElementById('btn-en')
+    };
+    const contents = {
+      'zh-cn': document.querySelectorAll('.lang-zh-cn'),
+      'zh-tw': document.querySelectorAll('.lang-zh-tw'),
+      'en': document.querySelectorAll('.lang-en')
+    };
+    function setLang(lang) {
+      for (const k in contents) {
+        contents[k].forEach(el => el.classList.toggle('active', k === lang));
+        btns[k].classList.toggle('active', k === lang);
+      }
+      document.documentElement.lang = lang === 'zh-cn' ? 'zh-CN' : (lang === 'zh-tw' ? 'zh-Hant' : 'en');
+    }
+    btns['zh-cn'].onclick = () => setLang('zh-cn');
+    btns['zh-tw'].onclick = () => setLang('zh-tw');
+    btns['en'].onclick = () => setLang('en');
+  </script>
 </body>
 </html>
