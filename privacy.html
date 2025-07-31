@@ -5,36 +5,79 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>隱私政策 - BlrraPlayer</title>
   <style>
+    :root {
+      --main-bg: #181c2a;
+      --card-bg: #232946;
+      --primary: #3f8efc;
+      --primary-dark: #1a73e8;
+      --accent: #f7c873;
+      --text-main: #f4f4f4;
+      --text-sub: #b8c1ec;
+      --button-bg: #f7c873;
+      --button-text: #181c2a;
+      --button-hover: #ffe6a7;
+      --shadow: 0 4px 32px rgba(30,40,90,0.18);
+    }
     body {
       font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
-      background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-      color: #222;
+      background: var(--main-bg);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-image: radial-gradient(circle at 60% 20%, #3f8efc22 0%, transparent 70%), radial-gradient(circle at 20% 80%, #f7c87322 0%, transparent 70%);
+    }
+    .lang-switcher {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      z-index: 10;
+    }
+    .lang-switcher button {
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 8px;
+      padding: 0.4em 1.1em;
+      margin-left: 0.3em;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .lang-switcher button.active,
+    .lang-switcher button:focus {
+      background: var(--primary);
+      color: #fff;
+      outline: 2px solid var(--accent);
     }
     main {
-      background: rgba(255,255,255,0.96);
-      border-radius: 18px;
-      box-shadow: 0 4px 32px rgba(60,60,120,0.10);
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
       padding: 2.5em 2em 2em 2em;
       max-width: 540px;
       margin-top: 60px;
       margin-bottom: 2em;
+      border: 1.5px solid #2e3650;
+      backdrop-filter: blur(2px);
+      position: relative;
     }
     h1 {
       font-size: 2.1rem;
       font-weight: 700;
-      color: #6366f1;
+      color: var(--accent);
       margin-bottom: 1.2em;
       letter-spacing: 1px;
+      text-align: center;
     }
     h2 {
       font-size: 1.2rem;
-      color: #06b6d4;
+      color: var(--primary);
       margin-top: 1.5em;
       margin-bottom: 0.5em;
     }
@@ -45,12 +88,12 @@
     }
     ul { padding-left: 1.2em; }
     a {
-      color: #6366f1;
+      color: var(--primary);
       text-decoration: underline;
     }
     footer {
       margin-top: auto;
-      color: #e0e7ff;
+      color: var(--text-sub);
       font-size: 0.95rem;
       padding-bottom: 1.5em;
       text-align: center;
@@ -58,37 +101,124 @@
     @media (max-width: 600px) {
       main { padding: 1.2em 0.5em; }
       h1 { font-size: 1.4rem; }
+      .lang-switcher { top: 12px; right: 12px; }
     }
+    /* 語言內容顯示控制 */
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
   </style>
 </head>
 <body>
+  <div class="lang-switcher" aria-label="語言切換 Language Switcher">
+    <button id="btn-zh-cn" type="button">简体</button>
+    <button id="btn-zh-tw" type="button" class="active">繁體</button>
+    <button id="btn-en" type="button">EN</button>
+  </div>
   <main>
-    <h1>隱私政策</h1>
-    <p>BlrraPlayer 尊重並保護您的個人隱私。本政策說明我們如何收集、使用和保護您的信息。</p>
-    <h2>1. 收集的信息</h2>
-    <ul>
-      <li>我們僅收集用於註冊、登錄和授權的必要信息（如郵箱、Google 賬號等）。</li>
-      <li>不會收集您的音樂文件內容、播放記錄等個人數據。</li>
-    </ul>
-    <h2>2. 信息用途</h2>
-    <ul>
-      <li>僅用於身份驗證、功能提供和用戶體驗優化。</li>
-      <li>不會將您的個人信息出售、出租或洩露給第三方。</li>
-    </ul>
-    <h2>3. 數據安全</h2>
-    <ul>
-      <li>我們採用業界標準的安全措施保護您的數據。</li>
-      <li>所有敏感信息均經過加密傳輸。</li>
-    </ul>
-    <h2>4. 第三方服務</h2>
-    <ul>
-      <li>BlrraPlayer 可能集成 Google、Microsoft 等第三方登錄服務，僅用於用戶授權。</li>
-    </ul>
-    <h2>5. 聯繫我們</h2>
-    <p>如有任何隱私問題，請聯繫 <a href="mailto:support@blrra.xxx">blr931@proton.me</a></p>
+    <!-- 繁體中文 -->
+    <div class="lang-content lang-zh-tw active">
+      <h1>隱私政策</h1>
+      <p>BlrraPlayer 尊重並保護您的個人隱私。本政策說明我們如何收集、使用和保護您的信息。</p>
+      <h2>1. 收集的信息</h2>
+      <ul>
+        <li>我們僅收集用於註冊、登錄和授權的必要信息（如郵箱、Google 賬號等）。</li>
+        <li>不會收集您的音樂文件內容、播放記錄等個人數據。</li>
+      </ul>
+      <h2>2. 信息用途</h2>
+      <ul>
+        <li>僅用於身份驗證、功能提供和用戶體驗優化。</li>
+        <li>不會將您的個人信息出售、出租或洩露給第三方。</li>
+      </ul>
+      <h2>3. 數據安全</h2>
+      <ul>
+        <li>我們採用業界標準的安全措施保護您的數據。</li>
+        <li>所有敏感信息均經過加密傳輸。</li>
+      </ul>
+      <h2>4. 第三方服務</h2>
+      <ul>
+        <li>BlrraPlayer 可能集成 Google、Microsoft 等第三方登錄服務，僅用於用戶授權。</li>
+      </ul>
+      <h2>5. 聯繫我們</h2>
+      <p>如有任何隱私問題，請聯繫 <a href="mailto:blr931@proton.me">blr931@proton.me</a></p>
+    </div>
+    <!-- 简体中文 -->
+    <div class="lang-content lang-zh-cn">
+      <h1>隐私政策</h1>
+      <p>BlrraPlayer 尊重并保护您的个人隐私。本政策说明我们如何收集、使用和保护您的信息。</p>
+      <h2>1. 收集的信息</h2>
+      <ul>
+        <li>我们仅收集用于注册、登录和授权的必要信息（如邮箱、Google 账号等）。</li>
+        <li>不会收集您的音乐文件内容、播放记录等个人数据。</li>
+      </ul>
+      <h2>2. 信息用途</h2>
+      <ul>
+        <li>仅用于身份验证、功能提供和用户体验优化。</li>
+        <li>不会将您的个人信息出售、出租或泄露给第三方。</li>
+      </ul>
+      <h2>3. 数据安全</h2>
+      <ul>
+        <li>我们采用业界标准的安全措施保护您的数据。</li>
+        <li>所有敏感信息均经过加密传输。</li>
+      </ul>
+      <h2>4. 第三方服务</h2>
+      <ul>
+        <li>BlrraPlayer 可能集成 Google、Microsoft 等第三方登录服务，仅用于用户授权。</li>
+      </ul>
+      <h2>5. 联系我们</h2>
+      <p>如有任何隐私问题，请联系 <a href="mailto:blr931@proton.me">blr931@proton.me</a></p>
+    </div>
+    <!-- English -->
+    <div class="lang-content lang-en">
+      <h1>Privacy Policy</h1>
+      <p>BlrraPlayer respects and protects your privacy. This policy explains how we collect, use, and protect your information.</p>
+      <h2>1. Information Collected</h2>
+      <ul>
+        <li>We only collect necessary information for registration, login, and authorization (such as email, Google account, etc.).</li>
+        <li>We do not collect your music file content, playback history, or other personal data.</li>
+      </ul>
+      <h2>2. Use of Information</h2>
+      <ul>
+        <li>Used only for authentication, feature provision, and user experience optimization.</li>
+        <li>Your personal information will not be sold, rented, or disclosed to third parties.</li>
+      </ul>
+      <h2>3. Data Security</h2>
+      <ul>
+        <li>We use industry-standard security measures to protect your data.</li>
+        <li>All sensitive information is transmitted in encrypted form.</li>
+      </ul>
+      <h2>4. Third-Party Services</h2>
+      <ul>
+        <li>BlrraPlayer may integrate third-party login services such as Google and Microsoft, only for user authorization.</li>
+      </ul>
+      <h2>5. Contact Us</h2>
+      <p>If you have any privacy questions, please contact <a href="mailto:blr931@proton.me">blr931@proton.me</a></p>
+    </div>
   </main>
   <footer>
     &copy; 2024 BlrraPlayer. All rights reserved.
   </footer>
+  <script>
+    // 語言切換邏輯
+    const btns = {
+      'zh-cn': document.getElementById('btn-zh-cn'),
+      'zh-tw': document.getElementById('btn-zh-tw'),
+      'en': document.getElementById('btn-en')
+    };
+    const contents = {
+      'zh-cn': document.querySelector('.lang-zh-cn'),
+      'zh-tw': document.querySelector('.lang-zh-tw'),
+      'en': document.querySelector('.lang-en')
+    };
+    function setLang(lang) {
+      for (const k in contents) {
+        contents[k].classList.toggle('active', k === lang);
+        btns[k].classList.toggle('active', k === lang);
+      }
+      document.documentElement.lang = lang === 'zh-cn' ? 'zh-CN' : (lang === 'zh-tw' ? 'zh-Hant' : 'en');
+    }
+    btns['zh-cn'].onclick = () => setLang('zh-cn');
+    btns['zh-tw'].onclick = () => setLang('zh-tw');
+    btns['en'].onclick = () => setLang('en');
+  </script>
 </body>
 </html>
