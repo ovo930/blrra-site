@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="google-site-verification" content="DJjF_vXsjlU9sNITynjcyaYM4A4aBd5aUDioo4OLF6A" />
-  <title>BlrraPlayer - 專業音樂播放器</title>
+  <title>Blrra Music Player - 專業音樂播放器</title>
   <style>
+    :root {
+      --main-bg: #181c2a;
+      --card-bg: #232946;
+      --primary: #3f8efc;
+      --primary-dark: #1a73e8;
+      --accent: #f7c873;
+      --text-main: #f4f4f4;
+      --text-sub: #b8c1ec;
+      --button-bg: #f7c873;
+      --button-text: #181c2a;
+      --button-hover: #ffe6a7;
+      --shadow: 0 4px 32px rgba(30,40,90,0.18);
+    }
     body {
       font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
-      background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-      color: #222;
+      background: var(--main-bg);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-image: radial-gradient(circle at 60% 20%, #3f8efc22 0%, transparent 70%), radial-gradient(circle at 20% 80%, #f7c87322 0%, transparent 70%);
     }
     header {
       margin-top: 60px;
@@ -24,25 +37,27 @@
     h1 {
       font-size: 2.8rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--accent);
       margin-bottom: 0.5em;
       letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(60,60,120,0.18);
+      text-shadow: 0 2px 8px #0004;
     }
     .subtitle {
       font-size: 1.3rem;
-      color: #e0e7ff;
+      color: var(--text-sub);
       margin-bottom: 2em;
       font-weight: 400;
     }
     main {
-      background: rgba(255,255,255,0.92);
-      border-radius: 18px;
-      box-shadow: 0 4px 32px rgba(60,60,120,0.10);
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
       padding: 2.5em 2em 2em 2em;
       max-width: 480px;
       margin-bottom: 2em;
       margin-top: 1em;
+      border: 1.5px solid #2e3650;
+      backdrop-filter: blur(2px);
     }
     ul {
       padding-left: 1.2em;
@@ -52,26 +67,36 @@
       margin-bottom: 0.7em;
       font-size: 1.08rem;
       line-height: 1.7;
+      color: var(--text-main);
     }
     a.button {
       display: inline-block;
-      background: #6366f1;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.7em 2em;
-      border-radius: 8px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      font-weight: 700;
+      padding: 0.8em 2.2em;
+      border-radius: 10px;
       text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 8px rgba(60,60,120,0.10);
-      transition: background 0.2s;
+      font-size: 1.15rem;
+      box-shadow: 0 2px 8px #0002;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       margin-top: 1em;
+      letter-spacing: 1px;
+      border: none;
+      outline: none;
     }
-    a.button:hover {
-      background: #06b6d4;
+    a.button:focus, a.button:hover {
+      background: var(--button-hover);
+      color: var(--primary-dark);
+      box-shadow: 0 4px 16px #0003;
+    }
+    a.button:active {
+      background: var(--primary);
+      color: #fff;
     }
     footer {
       margin-top: auto;
-      color: #e0e7ff;
+      color: var(--text-sub);
       font-size: 0.95rem;
       padding-bottom: 1.5em;
       text-align: center;
@@ -84,7 +109,7 @@
 </head>
 <body>
   <header>
-    <h1>BlrraPlayer</h1>
+    <h1>Blrra Music Player</h1>
     <div class="subtitle">專業音樂播放器，極致音質與智能體驗</div>
   </header>
   <main>
@@ -95,10 +120,10 @@
       <li>🌈 <b>多主題動態視覺化</b></li>
       <li>🔒 <b>隱私安全，無廣告</b></li>
     </ul>
-    <a class="button" href="privacy.html">查看隱私政策</a>
+    <a class="button" href="privacy.html" tabindex="0" aria-label="查看隱私政策">查看隱私政策</a>
   </main>
   <footer>
-    &copy; 2024 BlrraPlayer. All rights reserved.
+    &copy; 2024 Blrra.co.LTD. All rights reserved.
   </footer>
 </body>
 </html>
